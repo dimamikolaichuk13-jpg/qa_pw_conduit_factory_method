@@ -3,11 +3,17 @@ import { UserFactory } from '../../src/factoryItems/UserFactory';
 import { UserSettingsFactory } from '../../src/factoryItems/UserSettingsFactory';
 import { ArticleFactory } from '../../src/factoryItems/ArticleFactory';
 
+type Factories = {
+  user: UserFactory;
+  userSettings: UserSettingsFactory;
+  article: ArticleFactory;
+};
+
 export const test = base.extend<{
-  factories;
+  factories: Factories;
 }>({
   factories: async ({}, use) => {
-    const factories = {
+    const factories: Factories = {
       user: new UserFactory(),
       userSettings: new UserSettingsFactory(),
       article: new ArticleFactory(),
